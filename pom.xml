@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.hengbang</groupId>
-    <artifactId>hbcrm</artifactId>
+    <artifactId>springboot2jwt</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>hbcrmOauth</name>
+    <name>springboot2jwt</name>
     <description>恒邦客户管理系统</description>
     <url>http://localhost:9000</url>
 
@@ -141,7 +141,7 @@
     </dependencies>
 
     <build>
-        <finalName>hbcrmOauth</finalName>
+        <finalName>springboot2jwt</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
