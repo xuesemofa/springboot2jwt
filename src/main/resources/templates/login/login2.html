@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="context-path" content="@{/}"/>
+    <title>首页</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/img/HBfavicon.ico}"/>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrapValidator.css}" rel="stylesheet"/>
+    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet"/>
+    <link th:href="@{/css/animate.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="col-xs-12" style="display:none;top:40%;" id="login1">
+    <div class="spiner-example">
+        <div class="sk-spinner sk-spinner-wave">
+            <div class="sk-rect1"></div>
+            <div class="sk-rect2"></div>
+            <div class="sk-rect3"></div>
+            <div class="sk-rect4"></div>
+            <div class="sk-rect5"></div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="login2">
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-horizontal" id="login_form" style="color:black;">
+                    <span id="login_error"
+                          style="background:rgba(0, 0, 0, 0);border:0;color:red;"></span>
+                <!--<select-->
+                <!--name="account">-->
+                <!--<option value="guanling">guan</option>-->
+                <!--<option value="hengbangadmin">admin</option>-->
+                <!--</select>-->
+                <input type="hidden" name="account" value="" id="login_people"/>
+                <input type="hidden" name="password" value="hengbanghuirong"/>
+                <input type="button" style="display:none;"
+                       value="登&nbsp;&nbsp;&nbsp;&nbsp;录"
+                       id="login_button"/>
+
+                <input type="button"
+                       class="btn btn-info btn-circle btn-lg"
+                       value="guan"
+                       onclick="click_login_login('guanling')"/>
+                <input type="button"
+                       class="btn btn-info btn-circle btn-lg"
+                       value="admin"
+                       onclick="click_login_login('hengbangadmin')"/>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Mainly scripts -->
+<script th:src="@{/js/jquery-2.1.1.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<!--校验-->
+<script th:src="@{/js/bootstrapValidator.js}"></script>
+<script th:inline="javascript">
+/*<![CDATA[*/
+var path = /*[[${#httpServletRequest.getScheme() + "://"
++ #httpServletRequest.getServerName() + ":"
++ #httpServletRequest.getServerPort()
++ #httpServletRequest.getContextPath()}]]*/;
+/*]]>*/
+function click_login_login(obj){
+    $('#login_people').val(obj);
+    $('#login_button').click();
+}
+
+
+
+
+</script>
+<script th:src="@{/js/login/login.js}"></script>
+<script>
+    if(top.location!=self.location){
+        window.location.href=path+'/views/login/login';
+    }
+    if(navigator.userAgent.toLowerCase().indexOf("chrome")==-1){
+        $('.container-fluid').remove();
+        $('body').append('<center><h1><font color="red;">请使用chrome</font></h1></center>');
+    }
+
+
+
+</script>
+</body>
+</html>

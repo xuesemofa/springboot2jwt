@@ -1,0 +1,55 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <form id="dywh_page_sf_save">
+                <label>新增&nbsp;&nbsp;省份名称:</label>
+                <input type="text" name="mc" style="width:110px;"/>
+                <input type="hidden" name="lx" value="1"/>
+                <input type="hidden" name="parents" value="0"/>
+                <input class="btn btn-primary btn-xs" type="button" value="保存" onclick="dywh_page_sf_save()"/>
+            </form>
+        </div>
+        <div class="ibox-content">
+            <table class="table table-striped table-bordered table-hover dataTables-example">
+                <thead>
+                <tr>
+                    <th style="text-align: center;">序号</th>
+                    <th style="text-align: center;">省份</th>
+                    <th style="text-align: center;">操作</th>
+                </tr>
+                </thead>
+                <tbody id="dywh_page_sf_table_data">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--弹窗-->
+<input type="button" data-toggle="modal" data-target="#dywh_page_sf_update2" style="display:none;"
+       id="dywh_page_sf_update"/>
+<div class="modal inmodal fade" id="dywh_page_sf_update2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!--<h2>备注</h2>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="hidden" id="dywh_page_sf_update_uuid"/>
+                        <label>省份名称</label>
+                        <input type="text" id="dywh_page_sf_update_mc"/>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top:5;padding-bottom:5;">
+                <button type="button" class="btn btn-white" onclick="dywh_page_sf_update2()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/xtgl/dywhSF.js}" type="text/javascript" charset="utf-8"></script>

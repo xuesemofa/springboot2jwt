@@ -1,0 +1,76 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <form id="rygl_save" style="display:none;">
+                <input type="hidden" name="parents" id="rygl_save_parents"/>
+                <label>账户:</label>
+                <input type="text" name="account" style="width:110px;"/>
+                <label>姓名:</label>
+                <input type="text" name="name" style="width:110px;"/>
+                <label>手机:</label>
+                <input type="text" name="phone" style="width:110px;"/>
+                <input class="btn btn-primary btn-xs" type="button" value="保存" onclick="rygl_save2()"/>
+            </form>
+        </div>
+        <div class="ibox-content">
+            <div class="row">
+                <div class="col-lg-3 col-xs-3 col-sm-3">
+                    <div id="rygl_tree">
+                        <div style="width:100%;" data-id="0">
+                            <i class="fa fa-plus" onclick="rygl_tree(this)" id="rygl_tree_one"></i>
+                            团队
+                            <button type="button" class="btn btn-default btn-xs" onclick="rygl_rygl()">全部人员</button>
+                            <button type="button" class="btn btn-default btn-xs" onclick="rygl_add('0')">新增人员</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-xs-9 col-sm-9">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center;">序号</th>
+                            <th style="text-align: center;">账户</th>
+                            <th style="text-align: center;">名称</th>
+                            <th style="text-align: center;">手机号</th>
+                            <th style="text-align: center;">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="rygl_table_data">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--弹窗-->
+<input type="button" data-toggle="modal" data-target="#rygl_model_dg2" style="display:none;"
+       id="rygl_model_dg"/>
+<div class="modal inmodal fade" id="rygl_model_dg2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>备注</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="hidden" id="rygl_model_dg_uuid"/>
+                        <label>目标岗位</label>
+                        <select id="rygl_model_dg_parents">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top:5;padding-bottom:5;">
+                <button type="button" class="btn btn-white" onclick="rygl_model_dg2()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/rygl/rygl.js}" type="text/javascript" charset="utf-8"></script>

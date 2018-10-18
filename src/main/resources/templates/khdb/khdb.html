@@ -1,0 +1,171 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <form id="khdb_page_query">
+                <label>名称:</label>
+                <input type="text" name="gsmc" style="width:110px;"/>
+                <label>详细地址:</label>
+                <input type="text" name="xsdz" style="width:110px;"/>
+                <label>归属人:</label>
+                <select name="gsr" style="width:110px;">
+                </select>
+                <label>客户类型:</label>
+                <select name="khlx" style="width:110px;">
+                    <option value="">请选择</option>
+                    <option value="1">未签约</option>
+                    <option value="2">断约</option>
+                    <option value="3">合作</option>
+                </select>
+                <label>客户等级:</label>
+                <select name="khdj" style="width:110px;">
+                    <option value="">请选择</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+                <label>省:</label>
+                <select name="sf" style="width:110px;" onchange="cus_page_cxtj_dq()"></select>
+                <label>市:</label>
+                <select name="dq" style="width:110px;" onchange="cus_page_cxtj_cs()"></select>
+                <label>区/县:</label>
+                <select name="cs" style="width:110px;"></select>
+                <label>企业类型:</label>
+                <select name="qylx" style="width:110px;">
+                    <option value="">请选择</option>
+                    <option value="贸易公司">贸易公司</option>
+                    <option value="工厂">工厂</option>
+                    <option value="工贸一体">工贸一体</option>
+                    <option value="其它">其它</option>
+                </select>
+                <label>客户来源:</label>
+                <select name="khly" style="width:110px;"></select>
+                <input type="hidden" name="fields" id="fields"/>
+                <input type="hidden" name="orderBys" id="orderBys"/>
+                <input class="btn btn-primary btn-xs" type="button" value="查询" onclick="khdb_page_query()"/>
+            </form>
+        </div>
+        <div class="ibox-content">
+            <table class="table table-striped table-bordered table-hover dataTables-example">
+                <thead>
+                <tr>
+                    <th style="text-align: center;">序号</th>
+                    <th style="text-align: center;" class="px_zd">
+                        公司名称
+                        <span data-fields="1" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="1" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">省份
+                        <span data-fields="2" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="2" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">市
+                        <span data-fields="12" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="12" data-orderBys="1" class="px_zd_zd"><i class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">区县
+                        <span data-fields="3" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="3" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">详细地址
+                        <span data-fields="4" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="4" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">归属人
+                        <span data-fields="29" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="29" data-orderBys="1" class="px_zd_zd"><i class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">最后跟进时间
+                        <span data-fields="30" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="30" data-orderBys="1" class="px_zd_zd"><i class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;">操作</th>
+                </tr>
+                </thead>
+                <tbody id="khdb_page_table_data">
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="15" class="footable-visible">
+                        <ul class="pagination pull-right">
+                            <li class="footable-page-arrow" id="khdb_page_to_first" style="display:none;">
+                                <a>
+                                    <font style="vertical-align: inherit;">首页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow" id="khdb_page_first" style="display:none;">
+                                <a data-page="first">
+                                    <font style="vertical-align: inherit;">上一页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow" id="khdb_page_last" style="display:none;">
+                                <a data-page="last">
+                                    <font style="vertical-align: inherit;">下一页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow" id="khdb_page_to_last" style="display:none;">
+                                <a>
+                                    <font style="vertical-align: inherit;">末页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow disabled">
+                                <a>
+                                    <font style="vertical-align: inherit;" id="khdb_page_now">当前页:1</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow disabled">
+                                <a>
+                                    <font style="vertical-align: inherit;" id="khdb_page_pages">总页数:1</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow disabled">
+                                <a>
+                                    <font style="vertical-align: inherit;" id="khdb_page_total">总条数:0</font>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<!--弹窗-->
+<input type="button" data-toggle="modal" data-target="#khdb_page_query_db_gh_model" style="display:none;"
+       id="khdb_page_query_db_gh_model_button"/>
+<div class="modal inmodal fade" id="khdb_page_query_db_gh_model" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">更改归属</h2>
+                <button type="button" class="close" data-dismiss="modal" id="khdb_page_query_db_gh_model_close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <select id="khdb_dbz21"></select>
+                <input type="hidden" id="khdb_dbz22"/>
+                <label>备注</label>
+                <input type="text" id="khdb_dbz23"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="khdb_query_db_gh()">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/khdb/khdb.js}" type="text/javascript" charset="utf-8"></script>

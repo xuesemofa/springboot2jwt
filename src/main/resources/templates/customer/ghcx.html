@@ -1,0 +1,176 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <form id="customer_ghcx_query">
+                <label>名称:</label>
+                <input type="text" name="gsmc" style="width:110px;"/>
+                <label>详细地址:</label>
+                <input type="text" name="xsdz" style="width:110px;"/>
+                <label>客户类型:</label>
+                <select name="khlx" style="width:110px;">
+                    <option value="">请选择</option>
+                    <option value="1">未签约</option>
+                    <option value="2">断约</option>
+                    <option value="3">合作</option>
+                </select>
+                <label>客户等级:</label>
+                <select name="khdj" style="width:110px;">
+                    <option value="">请选择</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+                <label>省:</label>
+                <select name="sf" style="width:110px;" onchange="cus_page_cxtj_dq()"></select>
+                <label>市:</label>
+                <select name="dq" style="width:110px;" onchange="cus_page_cxtj_cs()"></select>
+                <label>区/县:</label>
+                <select name="cs" style="width:110px;"></select>
+                <label>企业类型:</label>
+                <select name="qylx" style="width:110px;">
+                    <option value="">请选择</option>
+                    <option value="贸易公司">贸易公司</option>
+                    <option value="工厂">工厂</option>
+                    <option value="工贸一体">工贸一体</option>
+                    <option value="其它">其它</option>
+                </select>
+                <label>客户来源:</label>
+                <select name="khly" style="width:110px;"></select>
+                <input type="hidden" name="gsr" value="0"/>
+                <input type="hidden" name="fields" id="fields"/>
+                <input type="hidden" name="orderBys" id="orderBys"/>
+                <input class="btn btn-primary btn-xs" type="button" value="查询" onclick="customer_ghcx_query()"/>
+            </form>
+        </div>
+        <div class="ibox-content">
+            <table class="table table-striped table-bordered table-hover dataTables-example">
+                <thead>
+                <tr>
+                    <th style="text-align: center;">序号</th>
+                    <th style="text-align: center;" class="px_zd">
+                        公司名称
+                        <span data-fields="1" data-orderBys="" class="px_zd_zd">
+                            <i class="fa fa-sort-alpha-asc"></i>
+                        </span>
+                        <span data-fields="1" data-orderBys="1" class="px_zd_zd">
+                            <i class="fa fa-sort-alpha-desc"></i>
+                        </span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">省份
+                        <span data-fields="2" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="2" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">市
+                        <span data-fields="12" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="12" data-orderBys="1" class="px_zd_zd"><i class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">区县
+                        <span data-fields="3" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="3" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">详细地址
+                        <span data-fields="4" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="4" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">最后跟进时间
+                        <span data-fields="30" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="30" data-orderBys="1" class="px_zd_zd"><i class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;">操作</th>
+                </tr>
+                </thead>
+                <tbody id="customer_ghcx_table_data">
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="15" class="footable-visible">
+                        <ul class="pagination pull-right">
+                            <li class="footable-page-arrow" id="customer_ghcx_page_to_first" style="display:none;">
+                                <a>
+                                    <font style="vertical-align: inherit;">首页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow" id="customer_ghcx_page_first" style="display:none;">
+                                <a data-page="first">
+                                    <font style="vertical-align: inherit;">上一页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow" id="customer_ghcx_page_last" style="display:none;">
+                                <a data-page="last">
+                                    <font style="vertical-align: inherit;">下一页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow" id="customer_ghcx_page_to_last" style="display:none;">
+                                <a>
+                                    <font style="vertical-align: inherit;">末页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow disabled">
+                                <a>
+                                    <font style="vertical-align: inherit;">跳转至</font>
+                                    <input type="text" style="height:18px;width:30px;"
+                                           value="1"
+                                           id="customer_ghcx_page_to_tz_sz"/>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow" id="customer_ghcx_page_to_tz">
+                                <a>
+                                    <font style="vertical-align: inherit;">跳转</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow disabled">
+                                <a>
+                                    <font style="vertical-align: inherit;" id="customer_ghcx_page_now">当前页:1</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow disabled">
+                                <a>
+                                    <font style="vertical-align: inherit;" id="customer_ghcx_page_pages">总页数:1</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow disabled">
+                                <a>
+                                    <font style="vertical-align: inherit;" id="customer_ghcx_page_total">总条数:0</font>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<input type="button" data-toggle="modal" data-target="#customer_ghcx_dbz2" style="display:none;"
+       id="customer_ghcx_dbz"/>
+<div class="modal inmodal fade" id="customer_ghcx_dbz2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <select id="customer_ghcx_dbz21"></select>
+                        <input type="hidden" id="customer_ghcx_dbz22"/>
+                        <label>备注</label>
+                        <input type="text" id="customer_ghcx_dbz23" placeholder="公调私不是必填项"/>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top:5;padding-bottom:5;">
+                <button type="button" class="btn btn-white" onclick="customer_ghcx_query_db_gh()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/customer/ghcx.js}" type="text/javascript" charset="utf-8"></script>

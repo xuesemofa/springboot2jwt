@@ -1,0 +1,53 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <input class="btn btn-primary btn-xs" type="button" value="新增" onclick="khly_page_add()"/>
+        </div>
+        <div class="ibox-content">
+            <table class="table table-striped table-bordered table-hover dataTables-example">
+                <thead>
+                <tr>
+                    <th style="text-align: center;">序号</th>
+                    <th style="text-align: center;">来源</th>
+                    <th style="text-align: center;">操作</th>
+                </tr>
+                </thead>
+                <tbody id="khly_page_table_data">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--弹窗-->
+<input type="button" data-toggle="modal" data-target="#khly_page_add21" style="display:none;"
+       id="khly_page_add2"/>
+<div class="modal inmodal fade" id="khly_page_add21" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!--<div class="row">-->
+                <!--<div class="col-xs-12">-->
+                <!--<h2>备注</h2>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="hidden" id="khly_model_a2"/>
+                        <label>名称</label>
+                        <input type="text" id="khly_model_a3"/>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top:5;padding-bottom:5;">
+                <button type="button" class="btn btn-white" onclick="khly_page_add21()" id="khly_page_add211">确定
+                </button>
+                <button type="button" class="btn btn-white" onclick="khly_page_update2()" id="khly_page_update212"
+                        style="display:none;">确定
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/khly/khly.js}" type="text/javascript" charset="utf-8"></script>

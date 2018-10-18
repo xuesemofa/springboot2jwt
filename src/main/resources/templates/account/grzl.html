@@ -1,0 +1,24 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+        </div>
+        <div class="ibox-content">
+            <div class="row">
+                <div class="col-lg-4" id="grzl_data">
+                    <label>姓名</label>
+                    <span><shiro:principal property="name"/></span><br/>
+                    <label>帐号</label>
+                    <span><shiro:principal property="account"/></span><br/>
+                    <label>手机号</label>
+                    <span><shiro:principal property="phone"/></span>
+                    <input type="text" value="" id="grzl_sjh" placeholder="输入新的手机号"/>
+                    <input type="button" value="更改" onclick="click_ggsjh()"/>
+                </div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/account/grzl.js}" type="text/javascript" charset="utf-8"></script>

@@ -1,0 +1,615 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="ibox float-e-margins">
+        <span style="font-weight:bold;color:red;">企业信息</span>
+        <input class="btn btn-primary btn-xs" type="button" onclick="customer_one_xq_sx()" value="刷新"/>
+        <table class="table" style="font-size:5px;">
+            <tbody>
+            <tr id="cus_one_xq_a1">
+                <td style="font-weight:bold"><font style="color:#ff00be;">基本信息</font></td>
+                <td></td>
+                <td style="font-weight:bold">录入时间</td>
+                <td></td>
+                <td style="font-weight:bold">编号</td>
+                <td></td>
+                <td style="font-weight:bold">图片</td>
+                <td colspan="5">
+                    <div style="height:100%;overflow-x:hidden;"></div>
+                </td>
+                <!--<td></td>-->
+                <!--<td></td>-->
+                <!--<td></td>-->
+                <!--<td></td>-->
+            </tr>
+            <tr id="cus_one_xq_a">
+                <td style="font-weight:bold">公司名称</td>
+                <td></td>
+                <td style="font-weight:bold">详细地址</td>
+                <td></td>
+                <td style="font-weight:bold">客户来源</td>
+                <td></td>
+                <td style="font-weight:bold">客户类型</td>
+                <td></td>
+                <td style="font-weight:bold">客户等级</td>
+                <td></td>
+                <td style="font-weight:bold">成立时间</td>
+                <td></td>
+            </tr>
+            <tr id="cus_one_xq_b">
+                <td style="font-weight:bold">销售区域</td>
+                <td></td>
+                <td style="font-weight:bold">员工人数</td>
+                <td></td>
+                <td style="font-weight:bold">销售渠道</td>
+                <td></td>
+                <td style="font-weight:bold">省份</td>
+                <td></td>
+                <td style="font-weight:bold">市</td>
+                <td></td>
+                <td style="font-weight:bold">区县</td>
+                <td></td>
+            </tr>
+            <tr id="cus_one_xq_c">
+                <td style="font-weight:bold">企业类型</td>
+                <td></td>
+                <td style="font-weight:bold">品牌</td>
+                <td></td>
+                <td style="font-weight:bold">网站</td>
+                <td></td>
+                <td style="font-weight:bold">年出口额</td>
+                <td></td>
+                <td style="font-weight:bold">年订单额</td>
+                <td></td>
+                <td style="font-weight:bold">商业登记号</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold"><font style="color:#ff00be;">财务信息</font></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="cus_one_xq_d">
+                <!--财务-->
+                <td style="font-weight:bold">名称</td>
+                <td></td>
+                <td style="font-weight:bold">纳税人识别号</td>
+                <td></td>
+                <td style="font-weight:bold">地址</td>
+                <td></td>
+                <td style="font-weight:bold">电话</td>
+                <td></td>
+                <td style="font-weight:bold">开户行</td>
+                <td></td>
+                <td style="font-weight:bold">账号</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <span style="font-weight:bold;color:red;">联系信息</span>
+        <input class="btn btn-primary btn-xs" type="button" value="新增" onclick="lxxx_add()"/>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>职位</th>
+                <th>生日</th>
+                <th>电话</th>
+                <th>传真</th>
+                <th>电子邮件</th>
+                <th>手机号</th>
+                <th>阿里旺旺</th>
+                <th>MSN/QQ</th>
+                <th>钉钉</th>
+                <th>其它联系方式</th>
+                <th>婚否</th>
+                <th>家庭成员</th>
+                <th>性格</th>
+                <th>重要日子</th>
+                <th>图片</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="lxxx_page_table_data">
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="15" class="footable-visible">
+                    <ul class="pagination pull-right">
+                        <li class="footable-page-arrow" id="lxxx_page_to_first" style="display:none;">
+                            <a>
+                                <font style="vertical-align: inherit;">首页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="lxxx_page_first" style="display:none;">
+                            <a data-page="first">
+                                <font style="vertical-align: inherit;">上一页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="lxxx_page_last" style="display:none;">
+                            <a data-page="last">
+                                <font style="vertical-align: inherit;">下一页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="lxxx_page_to_last" style="display:none;">
+                            <a>
+                                <font style="vertical-align: inherit;">末页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="lxxx_page_now">当前页:1</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="lxxx_page_pages">总页数:1</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="lxxx_page_total">总条数:0</font>
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+        <span style="font-weight:bold;color:red;">跟进记录</span>
+        <input class="btn btn-primary btn-xs" type="button" value="新增" onclick="gjjl_add()"/>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>跟进时间</th>
+                <th>跟进人</th>
+                <th>跟进方式</th>
+                <th>联系人</th>
+                <th>跟进情况</th>
+            </tr>
+            </thead>
+            <tbody id="gjjl_page_table_data">
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="15" class="footable-visible">
+                    <ul class="pagination pull-right">
+                        <li class="footable-page-arrow" id="gjjl_page_to_first" style="display:none;">
+                            <a>
+                                <font style="vertical-align: inherit;">首页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="gjjl_page_first" style="display:none;">
+                            <a data-page="first">
+                                <font style="vertical-align: inherit;">上一页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="gjjl_page_last" style="display:none;">
+                            <a data-page="last">
+                                <font style="vertical-align: inherit;">下一页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="gjjl_page_to_last" style="display:none;">
+                            <a>
+                                <font style="vertical-align: inherit;">末页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="gjjl_page_now">当前页:1</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="gjjl_page_pages">总页数:1</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="gjjl_page_total">总条数:0</font>
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+        <span style="font-weight:bold;color:red;">调转记录</span>
+        <table class="table">
+            <thead>
+            <tr>
+                <th style="text-align: center;">序号</th>
+                <th style="text-align: center;">操作人</th>
+                <th style="text-align: center;">原归属人</th>
+                <th style="text-align: center;">操作时间</th>
+                <th style="text-align: center;">调动后归属人</th>
+                <th style="text-align: center;">调动原因</th>
+            </tr>
+            </thead>
+            <tbody id="dzjl_page_table_data">
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="15" class="footable-visible">
+                    <ul class="pagination pull-right">
+                        <li class="footable-page-arrow" id="dzjl_page_to_first" style="display:none;">
+                            <a>
+                                <font style="vertical-align: inherit;">首页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="dzjl_page_first" style="display:none;">
+                            <a data-page="first">
+                                <font style="vertical-align: inherit;">上一页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="dzjl_page_last" style="display:none;">
+                            <a data-page="last">
+                                <font style="vertical-align: inherit;">下一页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="dzjl_page_to_last" style="display:none;">
+                            <a>
+                                <font style="vertical-align: inherit;">末页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="dzjl_page_now">当前页:1</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="dzjl_page_pages">总页数:1</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="dzjl_page_total">总条数:0</font>
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+        <span style="font-weight:bold;color:red;">修改记录</span>
+        <table class="table">
+            <thead>
+            <tr>
+                <th style="text-align: center;">序号</th>
+                <th style="text-align: center;">修改时间</th>
+                <th style="text-align: center;">修改操作人</th>
+                <th style="text-align: center;">原值</th>
+                <th style="text-align: center;">新值</th>
+            </tr>
+            </thead>
+            <tbody id="xgjl_page_table_data">
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="15" class="footable-visible">
+                    <ul class="pagination pull-right">
+                        <li class="footable-page-arrow" id="xgjl_page_to_first" style="display:none;">
+                            <a>
+                                <font style="vertical-align: inherit;">首页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="xgjl_page_first" style="display:none;">
+                            <a data-page="first">
+                                <font style="vertical-align: inherit;">上一页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="xgjl_page_last" style="display:none;">
+                            <a data-page="last">
+                                <font style="vertical-align: inherit;">下一页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow" id="xgjl_page_to_last" style="display:none;">
+                            <a>
+                                <font style="vertical-align: inherit;">末页</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="xgjl_page_now">当前页:1</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="xgjl_page_pages">总页数:1</font>
+                            </a>
+                        </li>
+                        <li class="footable-page-arrow disabled">
+                            <a>
+                                <font style="vertical-align: inherit;" id="xgjl_page_total">总条数:0</font>
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<!--联系方式新增弹窗-->
+<input type="button" data-toggle="modal" data-target="#lxxx_add2" style="display:none;"
+       id="lxxx_add"/>
+<div class="modal inmodal fade" id="lxxx_add2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">联系信息</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form id="lxxx_add2_form">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <label class="form-label">姓名</label>
+                                    <input class="form-control" type="text" name="xm"/>
+                                    <label class="form-label">职位</label>
+                                    <input class="form-control" type="text" name="zw"/>
+                                    <label class="form-label">电话</label>
+                                    <input class="form-control" type="text" name="dh"/>
+                                    <label class="form-label">电子邮件</label>
+                                    <input class="form-control" type="text" name="dzyj"/>
+                                    <label class="form-label">阿里旺旺</label>
+                                    <input class="form-control" type="text" name="alww"/>
+                                    <label class="form-label">钉钉</label>
+                                    <input class="form-control" type="text" name="dd"/>
+                                    <label class="form-label">婚否</label>
+                                    <select class="form-control" name="hf">
+                                        <option value="否">否</option>
+                                        <option value="是">是</option>
+                                    </select>
+                                    <label class="form-label">性格</label>
+                                    <input class="form-control" type="text" name="xg"/>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label class="form-label">性别</label>
+                                    <select class="form-control" name="xb">
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                    </select>
+                                    <label class="form-label">生日</label>
+                                    <div class="input-group date" id="lxxx_add2_form_a">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" class="form-control"
+                                               name="sr" readonly="readonly"/>
+                                    </div>
+                                    <label class="form-label">传真</label>
+                                    <input class="form-control" type="text" name="cz"/>
+                                    <label class="form-label">手机号</label>
+                                    <input class="form-control" type="text" name="sjh"/>
+                                    <label class="form-label">MSN/QQ</label>
+                                    <input class="form-control" type="text" name="qq"/>
+                                    <label class="form-label">其它联系方式</label>
+                                    <input class="form-control" type="text" name="qtlxfs"/>
+                                    <label class="form-label">家庭成员</label>
+                                    <input class="form-control" type="text" name="jtcy"/>
+                                    <label class="form-label">重要日子</label>
+                                    <div class="input-group date" id="lxxx_add2_form_b">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" class="form-control"
+                                               name="zyrz" readonly="readonly"/>
+                                    </div>
+                                    <input type="hidden" id="lxxx_add2_form_cusid" name="cusid"/>
+                                </div>
+                                <div class="col-lg-4">
+                                    <button class="btn btn-success btn-xs" type="button"
+                                            onclick="javascript:$('#lxxx_img_up_file').click();">
+                                        <i class="fa fa-upload"></i>&nbsp;&nbsp;<span class="bold">选择图片</span>
+                                    </button>
+                                    <input type="file" id="lxxx_img_up_file" name="files" style="display:none;"
+                                           accept="image/png/jpg"/>
+                                    <span style="border: 1px solid #ccc;" id="lxxx_img_up_yxzts">未选择图片</span>
+                                    <input class="btn btn-primary btn-xs" type="button" value="确定上传"
+                                           onclick="lxxx_img_up_file_add()"/>
+                                    <div id="lxxx_img_data">
+                                    </div>
+                                    <input type="hidden" name="imgs" id="lxxx_img_data2"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top:5;padding-bottom:5;">
+                <button type="button" class="btn btn-white" onclick="lxxx_add2_form()" id="lxxx_add2_form_button">确定
+                </button>
+                <button type="button" class="btn btn-white" onclick="lxxx_update2_form()" id="lxxx_update2_form_button"
+                        style="display:none;">确定
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--跟进记录新增弹窗-->
+<input type="button" data-toggle="modal" data-target="#gjjl_add2" style="display:none;"
+       id="gjjl_add"/>
+<div class="modal inmodal fade" id="gjjl_add2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">跟进记录</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form id="gjjl_add2_form">
+                            <input type="hidden" name="cusid" id="gjjl_add2_form_cusid"/>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <label class="form-label">跟进时间</label>
+                                    <div class="input-group date" id="gjjl_add2_form_a">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" class="form-control"
+                                               name="gjsj" readonly="readonly"/>
+                                    </div>
+                                    <label class="form-label">跟进方式</label>
+                                    <select class="form-control" name="gjfs" id="gjjl_add2_form_gjfs">
+                                        <option value="">请选择</option>
+                                    </select>
+                                    <!--<label class="form-label">跟进人</label>-->
+                                    <!--<select class="form-control" name="gjr">-->
+                                    <!--<option value="">请选择</option>-->
+                                    <!--</select>-->
+                                    <label class="form-label">联系人</label>
+                                    <select class="form-control" name="lxr" id="gjjl_add2_form_lxr">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label class="form-label">跟进情况</label>
+                                    <textarea class="form-control" name="gjqk" rows="6"
+                                              style="width:530px;resize:none;"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top:5;padding-bottom:5;">
+                <button type="button" class="btn btn-white" onclick="gjjl_add2_form()">确定
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--修改记录查看详情弹窗-->
+<input type="button" data-toggle="modal" data-target="#xgjl_ckxq2" style="display:none;"
+       id="xgjl_ckxq"/>
+<div class="modal inmodal fade" id="xgjl_ckxq2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" style="width:1000px;">
+        <div class="modal-content" style="width:1000px;">
+            <div class="modal-body" style="width:1000px;">
+                <div class="row" style="width:1000px;">
+                    <div class="col-xs-12">修改记录详情</div>
+                </div>
+                <div class="row" style="width:1000px;">
+                    <div class="col-xs-12">
+                        <table class="table" style="font-size:5px;">
+                            <tbody>
+                            <tr id="cus_one_xq_a12">
+                                <td style="font-weight:bold"><font style="color:#ff00be;">基本信息</font></td>
+                                <td></td>
+                                <td style="font-weight:bold">录入时间</td>
+                                <td></td>
+                                <td style="font-weight:bold">编号</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="cus_one_xq_a2">
+                                <td style="font-weight:bold">公司名称</td>
+                                <td></td>
+                                <td style="font-weight:bold">详细地址</td>
+                                <td></td>
+                                <td style="font-weight:bold">客户来源</td>
+                                <td></td>
+                                <td style="font-weight:bold">客户等级</td>
+                                <td></td>
+                                <td style="font-weight:bold">成立时间</td>
+                                <td></td>
+                                <td style="font-weight:bold">主营产品</td>
+                                <td></td>
+                            </tr>
+                            <tr id="cus_one_xq_b2">
+                                <td style="font-weight:bold">销售区域</td>
+                                <td></td>
+                                <td style="font-weight:bold">员工人数</td>
+                                <td></td>
+                                <td style="font-weight:bold">销售渠道</td>
+                                <td></td>
+                                <td style="font-weight:bold">省份</td>
+                                <td></td>
+                                <td style="font-weight:bold">市</td>
+                                <td></td>
+                                <td style="font-weight:bold">区县</td>
+                                <td></td>
+                            </tr>
+                            <tr id="cus_one_xq_c2">
+                                <td style="font-weight:bold">企业类型</td>
+                                <td></td>
+                                <td style="font-weight:bold">品牌</td>
+                                <td></td>
+                                <td style="font-weight:bold">网站</td>
+                                <td></td>
+                                <td style="font-weight:bold">年出口额</td>
+                                <td></td>
+                                <td style="font-weight:bold">年订单额</td>
+                                <td></td>
+                                <td style="font-weight:bold">商业登记号</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:bold"><font style="color:#ff00be;">财务信息</font></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr id="cus_one_xq_d2">
+                                <!--财务-->
+                                <td style="font-weight:bold">名称</td>
+                                <td></td>
+                                <td style="font-weight:bold">纳税人识别号</td>
+                                <td></td>
+                                <td style="font-weight:bold">地址</td>
+                                <td></td>
+                                <td style="font-weight:bold">电话</td>
+                                <td></td>
+                                <td style="font-weight:bold">开户行</td>
+                                <td></td>
+                                <td style="font-weight:bold">账号</td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top:5;padding-bottom:5;">
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/customer/one.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{/js/customer/one/lxxx.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{/js/customer/one/lxxxupimg.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{/js/customer/one/gjjl.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{/js/customer/one/dzjl.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{/js/customer/one/xgjl.js}" type="text/javascript" charset="utf-8"></script>

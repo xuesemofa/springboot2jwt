@@ -1,0 +1,318 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <form id="customer_page_query">
+                <label>名称:</label>
+                <input type="text" name="gsmc" style="width:110px;"/>
+                <label>详细地址:</label>
+                <input type="text" name="xsdz" style="width:110px;"/>
+                <label>客户类型:</label>
+                <select name="kylx" style="width:110px;">
+                    <option value="">请选择</option>
+                    <option value="1">未签约</option>
+                    <option value="2">断约</option>
+                    <option value="3">合作</option>
+                </select>
+                <label>客户等级:</label>
+                <select name="khdj" style="width:110px;">
+                    <option value="">请选择</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+                <label>省:</label>
+                <select name="sf" style="width:110px;" onchange="cus_page_cxtj_dq()"></select>
+                <label>市:</label>
+                <select name="dq" style="width:110px;" onchange="cus_page_cxtj_cs()"></select>
+                <label>区/县:</label>
+                <select name="cs" style="width:110px;"></select>
+                <label>企业类型:</label>
+                <select name="qylx" style="width:110px;">
+                    <option value="">请选择</option>
+                    <option value="贸易公司">贸易公司</option>
+                    <option value="工厂">工厂</option>
+                    <option value="工贸一体">工贸一体</option>
+                    <option value="其它">其它</option>
+                </select>
+                <label>客户来源:</label>
+                <select name="khly" style="width:110px;"></select>
+                <input type="hidden" name="fields" id="fields"/>
+                <input type="hidden" name="orderBys" id="orderBys"/>
+                <input class="btn btn-primary btn-xs" type="button" value="查询" onclick="customer_page_query()"/>
+                <shiro:hasPermission name="khgl:khdc">
+                    <input class="btn btn-primary btn-xs" type="button" value="导出结果" onclick="customer_page_exp()"/>
+                </shiro:hasPermission>
+            </form>
+        </div>
+        <div class="ibox-content">
+            <table class="table table-striped table-bordered table-hover dataTables-example">
+                <thead>
+                <tr>
+                    <th style="text-align: center;">序号</th>
+                    <th style="text-align: center;" class="px_zd">
+                        公司名称
+                        <span data-fields="1" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="1" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">省份
+                        <span data-fields="2" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="2" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">市
+                        <span data-fields="12" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="12" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">区县
+                        <span data-fields="3" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="3" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">详细地址
+                        <span data-fields="4" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="4" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">客户来源
+                        <span data-fields="4" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="4" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">客户类型
+                        <span data-fields="4" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="4" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">客户等级
+                        <span data-fields="4" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="4" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;" class="px_zd">最后跟进时间
+                        <span data-fields="30" data-orderBys="" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-asc"></i></span>
+                        <span data-fields="30" data-orderBys="1" class="px_zd_zd"><i
+                                class="fa fa-sort-alpha-desc"></i></span>
+                    </th>
+                    <th style="text-align: center;">操作</th>
+                </tr>
+                </thead>
+                <tbody id="customer_page_table_data">
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="15" class="footable-visible">
+                        <ul class="pagination pull-right">
+                            <li class="footable-page-arrow" id="customer_page_to_first" style="display:none;">
+                                <a>
+                                    <font style="vertical-align: inherit;">首页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow" id="customer_page_first" style="display:none;">
+                                <a data-page="first">
+                                    <font style="vertical-align: inherit;">上一页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow" id="customer_page_last" style="display:none;">
+                                <a data-page="last">
+                                    <font style="vertical-align: inherit;">下一页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow" id="customer_page_to_last" style="display:none;">
+                                <a>
+                                    <font style="vertical-align: inherit;">末页</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow disabled">
+                                <a>
+                                    <font style="vertical-align: inherit;" id="customer_page_now">当前页:1</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow disabled">
+                                <a>
+                                    <font style="vertical-align: inherit;" id="customer_page_pages">总页数:1</font>
+                                </a>
+                            </li>
+                            <li class="footable-page-arrow disabled">
+                                <a>
+                                    <font style="vertical-align: inherit;" id="customer_page_total">总条数:0</font>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--弹窗-->
+<input type="button" data-toggle="modal" data-target="#customer_model" style="display:none;"
+       id="customer_model_button"/>
+<div class="modal inmodal fade" id="customer_model" tabindex="-1" role="dialog" aria-hidden="true">
+    <form id="customer_page_update">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!--<div class="modal-header">-->
+                <!--<h2 class="modal-title">更改归属</h2>-->
+                <!--<button type="button" class="close" data-dismiss="modal" id="khdb_page_query_db_gh_model_close">-->
+                <!--<span aria-hidden="true">&times;</span>-->
+                <!--<span class="sr-only">Close</span>-->
+                <!--</button>-->
+                <!--</div>-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h2>基本信息</h2>
+                        </div>
+                        <div class="col-lg-4">
+                            <h2>财务信息</h2>
+                        </div>
+                    </div>
+                    <div class="row" id="cus_page_update_data">
+                        <div class="col-lg-4" id="customer_model_a">
+                            <label class="form-label">公司名称</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="gsmc" class="form-control" readonly="readonly"/><br/>
+                            <label class="form-label">详细地址</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="xsdz" class="form-control"/><br/>
+                            <label class="form-label">客户来源</label>&nbsp;&nbsp;&nbsp;
+                            <select class="form-control" id="customer_page_form_khly" name="khly">
+                            </select><br/>
+                            <label class="form-label">客户类型</label>&nbsp;&nbsp;&nbsp;
+                            <select name="khlx" class="form-control" id="customer_page_form_khlx">
+                                <option value="">请选择</option>
+                                <option value="1">未签约</option>
+                                <option value="2">断约</option>
+                                <option value="3">合作</option>
+                            </select><br/>
+                            <label class="form-label">客户等级</label>&nbsp;&nbsp;&nbsp;
+                            <select name="khdj" class="form-control" id="customer_page_form_khdj">
+                            </select><br/>
+                            <label class="form-label">成立时间</label>&nbsp;&nbsp;&nbsp;
+                            <div class="input-group date" id="customer_update_clsj_a">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                                <input type="text" class="form-control"
+                                       name="clsj" readonly="readonly"/>
+                            </div>
+                            <br/>
+                            <!--<label class="form-label">主营产品(暂时不支持修改此项)</label>&nbsp;&nbsp;&nbsp;-->
+                            <input type="text" class="form-control" style="display:none;"/><br/>
+                            <label class="form-label">销售区域</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="xsqy" class="form-control"/><br/>
+                            <label class="form-label">员工人数</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="ygrs" class="form-control"/><br/>
+                            <label class="form-label">销售渠道</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="xsqd" class="form-control"/>
+                            <input type="hidden" name="uuid" id="customer_model_a_uuid"/>
+                        </div>
+                        <div class="col-lg-4" style="border-right:1px solid #ccc" id="customer_model_b">
+                            <label class="form-label">省份</label>&nbsp;&nbsp;&nbsp;
+                            <select name="sf" onchange="cus_page_form_query_dq()"
+                                    class="form-control"></select><br/>
+                            <label class="form-label">市</label>&nbsp;&nbsp;&nbsp;
+                            <select name="dq" onchange="cus_page_form_query_cs()"
+                                    class="form-control"></select><br/>
+                            <label class="form-label">区县</label>&nbsp;&nbsp;&nbsp;
+                            <select name="cs" class="form-control"></select><br/>
+                            <label class="form-label">企业类型</label>&nbsp;&nbsp;&nbsp;
+                            <select name="qylx" class="form-control">
+                                <option value="贸易公司">贸易公司</option>
+                                <option value="工厂">工厂</option>
+                                <option value="工贸一体">工贸一体</option>
+                                <option value="其它">其它</option>
+                            </select><br/>
+                            <label class="form-label">品牌</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="pp" class="form-control"/><br/>
+                            <label class="form-label">网站</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="wz" class="form-control"/><br/>
+                            <label class="form-label">年出口额</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="ncke" class="form-control"/><br/>
+                            <label class="form-label">年订单额</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="ndde" class="form-control"/><br/>
+                            <label class="form-label">商业登记号</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="sydjh" class="form-control"/>
+                        </div>
+                        <div class="col-lg-4" id="customer_model_c">
+                            <label class="form-label">名称</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="cw_mc" class="form-control"/><br/>
+                            <label class="form-label">纳税人识别号</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="cw_nsrsbh" class="form-control"/><br/>
+                            <label class="form-label">地址</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="cw_dz" class="form-control"/><br/>
+                            <label class="form-label">电话</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="cw_dh" class="form-control"/><br/>
+                            <label class="form-label">开户行</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="cw_khh" class="form-control"/><br/>
+                            <label class="form-label">账号</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="cw_zh" class="form-control"/><br/>
+                            <label class="form-label">图片</label><br/>
+                            <button class="btn btn-success btn-xs" type="button"
+                                    onclick="javascript:$('#cus_img_up_file2').click();">
+                                <i class="fa fa-upload"></i>&nbsp;&nbsp;<span class="bold">选择图片</span>
+                            </button>
+                            <input type="file" id="cus_img_up_file2" name="files" style="display:none;"
+                                   accept="image/png/jpg"/>
+                            <span style="border: 1px solid #ccc;" id="cus_img_up_yxzts2">未选择图片</span>
+                            <input class="btn btn-primary btn-xs" type="button" value="确定上传"
+                                   onclick="cus_img_up_file_add2()"/>
+                            <div id="cus_img_data2">
+                            </div>
+                            <div style="display:none;" id="cus_img_list"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="padding-top:5;padding-bottom:5;">
+                    <button type="button" class="btn btn-white"
+                            id="customer_page_query_query_xq222"
+                            style="display:none;"
+                            onclick="customer_page_update()">确定
+                    </button>
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--弹窗-->
+<input type="button" data-toggle="modal" data-target="#customer_model2" style="display:none;"
+       id="customer_model_button2"/>
+<div class="modal inmodal fade" id="customer_model2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>备注</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="text" id="customer_model_a2"/>
+                        <input type="hidden" id="customer_model_a3"/>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top:5;padding-bottom:5;">
+                <button type="button" class="btn btn-white" onclick="customer_page_query_db_gh22()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/customer/page.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{/js/customer/upimg2.js}" type="text/javascript" charset="utf-8"></script>

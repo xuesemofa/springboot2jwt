@@ -1,0 +1,54 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <form id="bmgl_save" style="display:none;">
+                <input type="hidden" name="parents" id="bmgl_save_parents"/>
+                <label>名称:</label>
+                <input type="text" name="mc" id="bmgl_save_mc" style="width:110px;"/>
+                <input class="btn btn-primary btn-xs" type="button" value="保存" onclick="bmgl_save2()"/>
+            </form>
+        </div>
+        <div class="ibox-content">
+            <div class="row">
+                <div class="col-lg-3 col-xs-3 col-sm-3">
+                    <div id="bmgl_tree">
+                        <div style="width:100%;" data-id="0">
+                            <i class="fa fa-plus" onclick="bmgl_tree(this)" id="bmgl_tree_one"></i>
+                            组织机构
+                            <button type="button" class="btn btn-default btn-xs" onclick="bmgl_save(0)">新增下级</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--弹窗-->
+<input type="button" data-toggle="modal" data-target="#bmgl_update2" style="display:none;"
+       id="bmgl_update"/>
+<div class="modal inmodal fade" id="bmgl_update2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!--<h2>备注</h2>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="hidden" id="bmgl_update_uuid"/>
+                        <label>团队名称</label>
+                        <input type="text" id="bmgl_update_bmmc"/>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top:5;padding-bottom:5;">
+                <button type="button" class="btn btn-white" onclick="bmgl_update2()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/bmgl/bmgl.js}" type="text/javascript" charset="utf-8"></script>
