@@ -90,7 +90,7 @@ banner:
 #配置日志
 logging:
   #  默认日志格式 10M自动分割 最多存在7个文件
-  file: hbcrm.log
+  file: crm.log
   level:
     com.hengbang.hbcrm: debug
 #  采用xml 自定义日志格式，分割方式等
